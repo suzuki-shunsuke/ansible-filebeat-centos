@@ -1,0 +1,5 @@
+---
+# defaults file for filebeat-centos
+filebeat_users: []
+filebeat_version: "latest"
+filebeat_started: no
