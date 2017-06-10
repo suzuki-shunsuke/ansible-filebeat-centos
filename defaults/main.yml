@@ -1,4 +1,0 @@
----
-# defaults file for filebeat-centos
-filebeat_users: []
-filebeat_started: no
