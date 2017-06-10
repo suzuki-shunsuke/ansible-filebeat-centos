@@ -1,6 +1,6 @@
 ---
 # tasks file for filebeat-centos
-# https://www.elastic.co/guide/en/beats/filebeat/5.3/setup-repositories.html#_yum
+# https://www.elastic.co/guide/en/beats/filebeat/current/setup-repositories.html#_yum
 - name: Download and install the public signing key
   rpm_key:
     key: https://packages.elastic.co/GPG-KEY-elasticsearch
@@ -10,11 +10,18 @@
     src: elastic.repo
     dest: /etc/yum.repos.d/elastic.repo
   become: "{{filebeat_nonroot}}"
-- name: Install Filebeat
+- name: Install Filebeat (when filebeat_version is undefined)
   yum:
     name: filebeat
     update_cache: yes
   become: "{{filebeat_nonroot}}"
+  when: filebeat_version is undefined
+- name: Install Filebeat (when filebeat_version is not undefined)
+  yum:
+    name: filebeat-{{filebeat_version}}
+    update_cache: yes
+  become: "{{filebeat_nonroot}}"
+  when: filebeat_version is not undefined
 - name: Set filebeat daemon's state
   service:
     name: filebeat

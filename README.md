@@ -12,8 +12,9 @@ Nothing.
 Role Variables
 --------------
 
-* filebeat_state: filebeat daemon state.
-* filebeat_enabled: whether filebeat daemon is enabled.
+* filebeat_state(optional): filebeat daemon state.
+* filebeat_version(optional): filebeat version.
+* filebeat_enabled(optional): whether filebeat daemon is enabled.
 
 Dependencies
 ------------
@@ -29,9 +30,10 @@ Example Playbook
   - role: suzuki-shunsuke.filebeat-centos
     filebeat_state: started
     filebeat_enabled: yes
+    filebeat_version: 5.4.0
 ```
 
 License
 -------
 
-MIT
+[MIT](LICENSE)
