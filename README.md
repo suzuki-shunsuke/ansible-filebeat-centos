@@ -4,6 +4,11 @@ ansible role to install Filebeat on CentOS
 
 https://galaxy.ansible.com/suzuki-shunsuke/filebeat-centos/
 
+This role is deprecated
+------------------------
+
+Please use [suzuki-shunsuke.elastic-centos](https://galaxy.ansible.com/suzuki-shunsuke/elastic-centos/).
+
 Requirements
 ------------
 
